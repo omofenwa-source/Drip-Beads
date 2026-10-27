@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DRIP BEADS | No Rules. Just Vibes.</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0b0b;
+            color: white;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
+            background: rgba(8, 8, 8, 0.95);
+            border-bottom: 1px solid #444;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #a8753b;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #a8753b;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            background:
+                radial-gradient(circle at 50% 40%, #49341f 0%, #17110b 20%, #0b0b0b 65%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .small-text {
+            color: #aaa;
+            letter-spacing: 5px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 11vw, 120px);
+            line-height: 0.9;
+            letter-spacing: 6px;
+        }
+
+        .hero h1 span {
+            color: #a8753b;
+        }
+
+        .hero h2 {
+            margin-top: 25px;
+            font-size: 25px;
+            color: #ccc;
+            font-weight: normal;
+        }
+
+        .hero p {
+            margin: 20px auto 35px;
+            max-width: 600px;
+            color: #999;
+            line-height: 1.7;
+        }
+
+        .main-btn {
+            display: inline-block;
+            padding: 15px 35px;
+
+            background: #a8753b;
+            color: white;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .main-btn:hover {
+            transform: translateY(-4px);
+            background: #c28d4f;
+        }
+
+        /* ================= SECTIONS ================= */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: #a8753b;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #999;
+            margin-bottom: 50px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            text-align: center;
+            background: #111;
+        }
+
+        .about-text {
+            max-width: 750px;
+            margin: auto;
+
+            color: #bbb;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        .slogan {
+            margin-top: 30px;
+            color: #a8753b;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .shop {
+            background: #171717;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #101010;
+            border: 1px solid #383838;
+
+            padding: 20px;
+            border-radius: 14px;
+
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: #a8753b;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .product-img {
+            height: 200px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+
+            background:
+                radial-gradient(circle, #a8753b 5%, transparent 6%),
+                #070707;
+
+            background-size: 32px 32px;
+
+            font-size: 65px;
+        }
+
+        .product-card h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            color: #999;
+            line-height: 1.5;
+            min-height: 48px;
+        }
+
+        .price {
+            margin: 18px 0;
+
+            color: #d5aa72;
+
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .order-btn {
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+            border-radius: 5px;
+
+            background: #a8753b;
+            color: white;
+
+            font-weight: bold;
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background: #c28d4f;
+        }
+
+        /* ================= VIBE ================= */
+
+        .vibe {
+            background: #0b0b0b;
+            text-align: center;
+        }
+
+        .vibe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .vibe-box {
+            padding: 35px 20px;
+
+            background: #151515;
+            border: 1px solid #333;
+            border-radius: 12px;
+        }
+
+        .vibe-box .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .vibe-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .vibe-box p {
+            color: #999;
+            line-height: 1.6;
+        }
+
+        /* ================= CUSTOM ================= */
+
+        .custom {
+            background: #171717;
+            text-align: center;
+        }
+
+        .custom p {
+            max-width: 650px;
+            margin: 0 auto 30px;
+
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            text-align: center;
+            background:
+                linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.9)),
+                #3a2919;
+        }
+
+        .contact p {
+            color: #bbb;
+            margin: 20px auto 30px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 35px 20px;
+
+            text-align: center;
+
+            background: #050505;
+
+            color: #777;
+        }
+
+        footer strong {
+            color: #a8753b;
+        }
+
+        .socials {
+            margin: 15px 0;
+        }
+
+        .socials a {
+            color: #aaa;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .socials a:hover {
+            color: #a8753b;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <div class="logo">
+            DRIP <span>BEADS</span>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#shop">Shop</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#custom">Custom</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="small-text">
+                WELCOME TO THE DRIP
+            </div>
+
+            <h1>
+                DRIP <span>BEADS</span>
+            </h1>
+
+            <h2>
+                NO RULES. JUST VIBES.
+            </h2>
+
+            <p>
+                Sporty. Bold. Different.
+                Handmade bead accessories for people
+                who create their own style.
+            </p>
+
+            <a href="#shop" class="main-btn">
+                SHOP THE DRIP
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <h2 class="section-title">
+            ABOUT <span>DRIP</span>
+        </h2>
+
+        <p class="about-text">
+
+            Drip Beads is a bead accessory brand built around
+            individuality, sporty energy and street style.
+
+            From simple bracelets to chunky designs and phone
+            charms, every piece is made to add a little more
+            personality to your everyday look.
+
+        </p>
+
+        <div class="slogan">
+            No Rules. Just Vibes. 🖤
+        </div>
+
+    </section>
+
+
+    <!-- ================= SHOP ================= -->
+
+    <section class="shop" id="shop">
+
+        <h2 class="section-title">
+            SHOP THE <span>DRIP</span>
+        </h2>
+
+        <p class="section-subtitle">
+            Pick your style. Pick your vibe.
+        </p>
+
+
+        <div class="product-grid">
+
+
+            <!-- SIMPLE BRACELET -->
+
+            <div class="product-card">
+
+                <div class="product-img">
+                    📿
+                </div>
+
+                <h3>Street Bracelet</h3>
+
+                <p>
+                    Simple black and silver bead bracelet
+                    for everyday wear.
+                </p>
+
+                <div class="price">
+                    ₦1,500
+                </div>
+
+                <button class="order-btn"
+                    onclick="order('Street Bracelet', '₦1,500')">
+                    ORDER NOW
+                </button>
+
+            </div>
+
+
+            <!-- CHUNKY BRACELET -->
+
+            <div class="product-card">
+
+                <div class="product-img">
+                    💪
+                </div>
+
+                <h3>Chunky Drip</h3>
+
+                <p>
+                    Bold chunky beads for a stronger
+                    streetwear look.
+                </p>
+
+                <div class="price">
+                    ₦2,500
+                </div>
+
+                <button class="order-btn"
+                    onclick="order('Chunky Drip', '₦2,500')">
+                    ORDER NOW
+                </button>
+
+            </div>
+
+
+            <!-- WOODEN -->
+
+            <div class="product-card">
+
+                <div class="product-img">
+                    🤎
+                </div>
+
+                <h3>Wood Drip</h3>
+
+                <p>
+                    Black, silver and wooden-brown
+                    bead combination.
+                </p>
+
+                <div class="price">
+                    ₦2,000
+                </div>
+
+                <button class="order-btn"
+                    onclick="order('Wood Drip', '₦2,000')">
+                    ORDER NOW
+                </button>
+
+            </div>
+
+
+            <!-- PHONE CHARM -->
+
+            <div class="product-card">
+
+                <div class="product-img">
+                    📱
+                </div>
+
+                <h3>Phone Drip</h3>
+
+                <p>
+                    Sporty beaded phone charm designed
+                    to match your vibe.
+                </p>
+
+                <div class="price">
+                    ₦1,500
+                </div>
+
+                <button class="order-btn"
+                    onclick="order('Phone Drip', '₦1,500')">
+                    ORDER NOW
+                </button>
+
+            </div>
+
+
+            <!-- SPORTS -->
+
+            <div class="product-card">
+
+                <div class="product-img">
+                    🏁
+                </div>
+
+                <h3>Sport Drip</h3>
+
+                <p>
+                    Sport-inspired beads for an active
+                    streetwear style.
+                </p>
+
+                <div class="price">
+                    ₦2,000
+                </div>
+
+                <button class="order-btn"
+                    onclick="order('Sport Drip', '₦2,000')">
+                    ORDER NOW
+                </button>
+
+            </div>
+
+
+            <!-- CUSTOM -->
+
+            <div class="product-card">
+
+                <div class="product-img">
+                    🔤
+                </div>
+
+                <h3>Custom Drip</h3>
+
+                <p>
+                    Add your name, initials or favourite
+                    letters.
+                </p>
+
+                <div class="price">
+                    ₦2,500
+                </div>
+
+                <button class="order-btn"
+                    onclick="order('Custom Drip', '₦2,500')">
+                    ORDER NOW
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= VIBE ================= -->
+
+    <section class="vibe">
+
+        <h2 class="section-title">
+            THE <span>VIBE</span>
+        </h2>
+
+        <div class="vibe-grid">
+
+            <div class="vibe-box">
+
+                <div class="icon">🖤</div>
+
+                <h3>Bold</h3>
+
+                <p>
+                    Wear something that represents
+                    your personality.
+                </p>
+
+            </div>
+
+
+            <div class="vibe-box">
+
+                <div class="icon">🏁</div>
+
+                <h3>Sporty</h3>
+
+                <p>
+                    Inspired by sporty and streetwear
+                    fashion.
+                </p>
+
+            </div>
+
+
+            <div class="vibe-box">
+
+                <div class="icon">🔥</div>
+
+                <h3>Different</h3>
+
+                <p>
+                    Don't follow the crowd.
+                    Create your own style.
+                </p>
+
+            </div>
+
+
+            <div class="vibe-box">
+
+                <div class="icon">✨</div>
+
+                <h3>Handmade</h3>
+
+                <p>
+                    Every piece is carefully
+                    put together.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CUSTOM ORDERS ================= -->
+
+    <section class="custom" id="custom">
+
+        <h2 class="section-title">
+            CREATE YOUR <span>DRIP</span>
+        </h2>
+
+        <p>
+            Want something unique?
+            Choose your colours, beads, letters
+            and style to create your own custom piece.
+        </p>
+
+        <button class="main-btn"
+            onclick="customOrder()">
+            MAKE A CUSTOM ORDER
+        </button>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact" id="contact">
+
+        <h2 class="section-title">
+            READY TO <span>DRIP?</span>
+        </h2>
+
+        <p>
+            Have a question or want to place an order?
+        </p>
+
+        <button class="main-btn" onclick="contactUs()">
+            CONTACT US
+        </button>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>
+            DRIP <strong>BEADS</strong>
+        </h3>
+
+        <div class="socials">
+
+            <!-- CHANGE THESE USERNAMES -->
+            <a href="https://www.instagram.com/YOUR_INSTAGRAM_USERNAME/"
+               target="_blank">
+                Instagram
+            </a>
+
+            <a href="https://www.tiktok.com/@YOUR_TIKTOK_USERNAME"
+               target="_blank">
+                TikTok
+            </a>
+
+            <a href="https://wa.me/2348012345678"
+               target="_blank">
+                WhatsApp
+            </a>
+
+        </div>
+
+        <p>
+            © 2026 Drip Beads.
+            No Rules. Just Vibes. 🖤🤎
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /*
+        ==================================================
+        CHANGE THIS NUMBER TO YOUR REAL WHATSAPP NUMBER.
+
+        Example:
+        If your number is 08012345678
+
+        Write:
+        2348012345678
+
+        Do NOT include the first 0.
+        ==================================================
+        */
+
+        const whatsappNumber = "08140146366";
+
+
+        // ORDER FUNCTION
+
+        function order(product, price) {
+
+            const message =
+                "🔥 DRIP BEADS ORDER 🔥%0A%0A" +
+                "Hello! I would like to order:%0A" +
+                "Product: " + product + "%0A" +
+                "Price: " + price + "%0A%0A" +
+                "Please let me know how to complete my order.";
+
+            const whatsappLink =
+                "https://wa.me/" +
+                whatsappNumber +
+                "?text=" +
+                message;
+
+            window.open(whatsappLink, "_blank");
+
+        }
+
+
+        // CUSTOM ORDER
+
+        function customOrder() {
+
+            const message =
+                "🔥 DRIP BEADS CUSTOM ORDER 🔥%0A%0A" +
+                "Hello! I would like to make a custom order.%0A%0A" +
+                "I would like:%0A" +
+                "- Colour:%0A" +
+                "- Bead style:%0A" +
+                "- Letters/name:%0A" +
+                "- Other details:";
+
+            const whatsappLink =
+                "https://wa.me/" +
+                whatsappNumber +
+                "?text=" +
+                message;
+
+            window.open(whatsappLink, "_blank");
+
+        }
+
+
+        // CONTACT BUTTON
+
+        function contactUs() {
+
+            const message =
+                "🖤 DRIP BEADS 🖤%0A%0A" +
+                "Hello! I found your DRIP BEADS website " +
+                "and I would like to make an enquiry.";
+
+            const whatsappLink =
+                "https://wa.me/" +
+                whatsappNumber +
+                "?text=" +
+                message;
+
+            window.open(whatsappLink, "_blank");
+
+        }
+
+    </script>
+
+</body>
+</html>
